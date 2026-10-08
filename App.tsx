@@ -1,45 +1,39 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import {Button, Text, TextInput, View} from 'react-native';
+import CustomLabel from './src/components/CustomLabel';
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+
+  console.log('Hello');
+
+  function click(value:any){
+    console.log(value);
+  }
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
-}
+    <View style={{alignItems: 'center', flex:1, marginTop:35, borderWidth:1, borderColor:'red'}}>
+      <CustomLabel>Welcome</CustomLabel>
+      <CustomText fSize={30} a={'React'} b={'Native'} c={'yellow'} />
+      <Button title='Click Me' onPress={()=>{
+        click('React Native');
+      }} />
 
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+      <TextInput style={{backgroundColor:'white', color:'black', width:300, marginTop:30, borderRadius:10, paddingLeft:20, paddingRight:20}} placeholder='user name' placeholderTextColor={'#5a5a5a'}/>
+      <TextInput style={{backgroundColor:'white', color:'black', width:300, marginTop:20, borderRadius:10, paddingLeft:20, paddingRight:20}} placeholder='password' placeholderTextColor={'#5a5a5a'} secureTextEntry={true}/>
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+type CustomTextProps = {
+  fSize?: number
+  a: string  
+  b: string
+  c: string
+}
+
+function CustomText(props:CustomTextProps){
+  return(
+    <Text style={{fontSize:props.fSize, color:props.c, marginBottom:20, borderWidth:1, borderColor:'red'}}>{props.a} {props.b}</Text>
+  ); 
+}
 
 export default App;
