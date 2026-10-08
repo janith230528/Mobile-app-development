@@ -34,8 +34,8 @@ function App() {
     </View>
       
       <View style={{}}></View>
-      <TextInput style={{backgroundColor:'white', color:'black', width:300, marginTop:30, borderRadius:10, paddingLeft:20, paddingRight:20}} placeholder='user name' placeholderTextColor={'#5a5a5a'}/>
-      <TextInput style={{backgroundColor:'white', color:'black', width:300, marginTop:20, borderRadius:10, paddingLeft:20, paddingRight:20}} placeholder='password' placeholderTextColor={'#5a5a5a'} secureTextEntry={true}/>
+      <TextInput style={{backgroundColor:'white', color:'black', width:300, marginTop:30, borderRadius:10, paddingHorizontal:20}} placeholder='user name' placeholderTextColor={'#5a5a5a'}/>
+      <TextInput style={{backgroundColor:'white', color:'black', width:300, marginTop:20, borderRadius:10, paddingHorizontal:20}} placeholder='password' placeholderTextColor={'#5a5a5a'} secureTextEntry={true}/>
 
       <View style={{flexDirection: 'row', alignItems:'center', justifyContent:'space-between', gap:20, marginTop:30}}>
       <Button title='Increment x' onPress={changeX} />
@@ -55,7 +55,7 @@ type CustomTextProps = {
 
 function CustomText(props:CustomTextProps){
   return(
-    <Text style={{fontSize:props.fSize, color:props.c, marginBottom:20, borderWidth:1, borderColor:'red'}}>{props.a} {props.b}</Text>
+    <Text style={{fontSize:props.fSize, color:props.c, marginBottom:20}}>{props.a} {props.b}</Text>
   ); 
 }
 

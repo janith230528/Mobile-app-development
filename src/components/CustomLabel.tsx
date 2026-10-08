@@ -8,8 +8,6 @@ const CustomLabel = (props:any) => {
         fontSize: 40,
         color: 'white',
         fontWeight: '700',
-        borderWidth: 1,
-        borderColor: 'red',
       }}>{props.children}</Text>
     </View>
   )
