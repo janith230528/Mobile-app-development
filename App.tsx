@@ -16,18 +16,32 @@ function App() {
     setCount(count + 1);
   }
 
+  var x = 0;
+
+  function changeX(){
+    x = x + 1;
+    console.log(x)
+  }
+
   return (
-    <View style={{alignItems: 'center', flex:1, marginTop:35, borderWidth:1, borderColor:'red'}}>
+    <View style={{alignItems: 'center', flex:1, marginTop:30, borderWidth:1, borderColor:'red'}}>
       <CustomLabel>Hello Welcome</CustomLabel>
       <CustomText fSize={30} a={'React'} b={'Native'} c={'yellow'} />
     
-    <View style={{flexDirection: 'row', alignItems:'center', borderWidth:1, borderColor:'red', justifyContent:'space-between', gap:20 }}>
+    <View style={{flexDirection: 'row', alignItems:'center', justifyContent:'space-between', gap:20 }}>
       <Button title='Change Count' onPress={changeCount} />
       <Text style={{color:'white'}}>{count}</Text>
     </View>
       
+      <View style={{}}></View>
       <TextInput style={{backgroundColor:'white', color:'black', width:300, marginTop:30, borderRadius:10, paddingLeft:20, paddingRight:20}} placeholder='user name' placeholderTextColor={'#5a5a5a'}/>
       <TextInput style={{backgroundColor:'white', color:'black', width:300, marginTop:20, borderRadius:10, paddingLeft:20, paddingRight:20}} placeholder='password' placeholderTextColor={'#5a5a5a'} secureTextEntry={true}/>
+
+      <View style={{flexDirection: 'row', alignItems:'center', justifyContent:'space-between', gap:20, marginTop:30}}>
+      <Button title='Increment x' onPress={changeX} />
+      <Text style={{color:'white'}}>{x}</Text>
+      </View>
+
     </View>
   );
 }
