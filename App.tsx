@@ -1,13 +1,9 @@
-import { Alert, Button, Text, TextInput, View } from "react-native";
+import { Alert, Button, StyleSheet, Text, TextInput, View } from "react-native";
 import CustomLabel from "./src/components/CustomLabel";
 import { useState } from "react";
 
 function App() {
   console.log("Hello");
-
-  function click(value: any) {
-    console.log(value);
-  }
 
   const [count, setCount] = useState(0);
 
@@ -51,23 +47,14 @@ function App() {
     cal.subtraction();
   }
   return (
-    <View style={{ flex: 1 }}>
-      <View style={{ flex: 1, backgroundColor: "black" }}></View>
+    <View style={sty.appContainer}>
+      <View style={sty.topBar}></View>
 
-      <View
-        style={{ flex: 25, backgroundColor: "darkgreen", alignItems: "center" }}
-      >
+      <View style={sty.contentArea}>
         <CustomLabel>Hello Welcome</CustomLabel>
         <CustomText fSize={30} a={"React"} b={"Native"} c={"yellow"} />
 
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            width: 150,
-          }}
-        >
+        <View style={sty.btnContainer}>
           <Button title="Change Count" onPress={changeCount} />
           <Text style={{ color: "white" }}>{count}</Text>
         </View>
@@ -120,7 +107,7 @@ function App() {
         </View>
       </View>
 
-      <View style={{ flex: 1.4, backgroundColor: "black" }}></View>
+      <View style={{ flex: 1.5, backgroundColor: "black" }}></View>
     </View>
   );
 }
@@ -140,4 +127,15 @@ function CustomText(props: CustomTextProps) {
   );
 }
 
+const sty = StyleSheet.create({
+  appContainer: { flex: 1 },
+  topBar: { flex: 1, backgroundColor: "black" },
+  contentArea: { flex: 25, backgroundColor: "darkgreen", alignItems: "center" },
+  btnContainer:{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            width: 150,
+          }
+});
 export default App;
